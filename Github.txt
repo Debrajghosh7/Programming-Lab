@@ -1,0 +1,573 @@
+1.//A person is traveling in a train from sealdah to barasat , he want to search whether madhyamgram is there in between or not . WAP to check whether he has found his destination or not .
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    cout << "The available stations nearby are:" << endl
+         << "1. Sealdah" << endl
+         << "2. Dum Dum" << endl
+         << "3. Belgharia" << endl
+         << "4. Agarpara" << endl
+         << "5. Sodpur" << endl
+         << "6. Madhyamgram" << endl
+         << "7. Barasat" << endl;
+
+    int destination;
+    string stations[] = {"Sealdah", "Dum Dum", "Belgharia", "Agarpara", "Sodpur", "Madhyamgram", "Barasat"};
+    int n = sizeof(stations) / sizeof(stations[0]);
+
+    cout << "Enter the station number: ";
+    cin >> destination;
+
+    bool found = false;
+    string station;
+
+    if (destination >= 1 && destination <= 7)
+    {
+        string stations[] = {"Sealdah", "Dum Dum", "Belgharia", "Agarpara", "Sodpur", "Madhyamgram", "Barasat"};
+        station = stations[destination - 1];
+        found = true;
+    }
+
+    if (found)
+    {
+        cout << "Yes, " << station << " is there in between Sealdah and Barasat." << endl;
+    }
+    else
+    {
+        cout << "No, " << destination << " is not there in between Sealdah and Barasat." << endl;
+    }
+
+    return 0;
+}
+
+2.//Sir  has come into the  class , he wants to check whether debasmita is present in the class or not
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Student
+{
+    string name;
+    string rollNumber;
+};
+
+int main()
+{
+    Student students[] = {
+        {"Sayan", "32"}, {"Debasmita", "27"}, {"Snehasish", "12"}, {"Abhishek", "11"}, {"Tushar", "29"}, {"Sougata", "3"}};
+
+    string searchInput;
+    cout << "Enter the student name or roll number: ";
+    cin >> searchInput;
+
+    for (const auto &student : students)
+    {
+        if (student.name == searchInput || student.rollNumber == searchInput)
+        {
+            cout << "Yes, " << student.name << " is present in the class." << endl;
+            return 0;
+        }
+    }
+
+    cout << "No, " << searchInput << " is not present in the class." << endl;
+
+    return 0;
+}
+
+3.//WAP in C++ , to implement bouble shot , if the array is shorted then it will not iterate
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[] = {3, 2, 5, 4, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    bool swapped;
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        swapped = false;
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                swap(arr[j], arr[j + 1]);
+                swapped = true;
+            }
+        }
+        if (!swapped)
+            break; // Array is sorted
+    }
+
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+
+    return 0;
+}
+
+4.// WAP in c++ to check if a string is palindrome or not , without using string.h 
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+    char str[100];
+    bool isPalindrome = true;
+
+    cout << "Enter a string: ";
+    cin >> str;
+
+    int length = strlen(str);
+
+    for (int i = 0; i < length / 2; i++)
+    {
+        if (str[i] != str[length - 1 - i])
+        {
+            isPalindrome = false;
+            break;
+        }
+    }
+
+    if (isPalindrome)
+    {
+        cout << "The string " << str << " is a palindrome." << endl;
+    }
+    else
+    {
+        cout << "The string " << str << " is not a palindrome." << endl;
+    }
+
+    return 0;
+}
+5.//WAP a c++ which will add 2 distances given in feet and inches
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int feet1, feet2, inches1, inches2;
+    cout << "Enter the first distance in feet: ";
+    cin >> feet1;
+    cout << "Enter the first distance in inches: ";
+    cin >> inches1;
+    cout << "Enter the second distance in feet: ";
+    cin >> feet2;
+    cout << "Enter the second distance in inches: ";
+    cin >> inches2;
+    int totalFeet = feet1 + feet2;
+    int totalInches = inches1 + inches2;
+    totalFeet += totalInches / 12;
+    totalInches %= 12;
+    cout << "Total distance: " << totalFeet << " feet " << totalInches << " inches" << endl;
+    return 0;
+}
+6.//Wap to implement Fibonacci series using recursion
+
+#include <iostream>
+using namespace std;
+
+int fibonacci(int n)
+{
+    if (n <= 1)
+        return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main()
+{
+    int n;
+    cout << "Enter the number of terms: ";
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        cout << fibonacci(i) << " ";
+    }
+
+    return 0;
+}
+7.//Wap to count number of vowel and strings in switch case
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    int vowels = 0, consonants = 0;
+    for (char c : str)
+    {
+        switch (tolower(c))
+        {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+            vowels++;
+            break;
+        default:
+            consonants++;
+        }
+    }
+    cout << "Number of vowels: " << vowels << endl;
+    cout << "Number of consonants: " << consonants << endl;
+    return 0;
+}
+8.//Wap  to implement Adamas University  marking system
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int marks;
+    cout << "Enter the marks: ";
+    cin >> marks;
+    if (marks >= 90)
+    {
+        cout << "Grade: A+";
+    }
+    else if (marks >= 80)
+    {
+        cout << "Grade: A";
+    }
+    else if (marks >= 70)
+    {
+        cout << "Grade: B+";
+    }
+    else if (marks >= 60)
+    {
+        cout << "Grade: B";
+    }
+    else if (marks >= 50)
+    {
+        cout << "Grade: C+";
+    }
+    else if (marks >= 40)
+    {
+        cout << "Grade: C";
+    }
+    else if (marks >= 30)
+    {
+        cout << "Grade: D";
+    }
+    else
+    {
+        cout << "Better luck next time ";
+    }
+    return 0;
+}
+9.//Wap in c++ to access the array elements using pointers
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+    for (int i = 0; i < 5; i++)
+    {
+        cout << *(ptr + i) << " ";
+    }
+    return 0;
+}
+10.//Wap in C to implement copy and concatenate and compare two strings without using library function
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    string str1, str2;
+    cout << "Enter the first string: ";
+    getline(cin, str1);
+    cout << "Enter the second string: ";
+    getline(cin, str2);
+    string str3 = str1;
+    cout << "Copied string: " << str3 << endl;
+    str3 += str2;
+    cout << "Concatenated string: " <<  str3 << endl;
+    if (str1 == str2)
+    {
+        cout << "The strings are equal." << endl;
+    }
+    else
+    {
+        cout << "The strings are not equal." << endl;
+    }
+    return 0;
+}
+11.//Wap a c++ prog to reverse a pascal triangle
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+
+vector<vector<int>> generatePascalsTriangle(int numRows)
+{
+    vector<vector<int>> triangle(numRows);
+
+    for (int i = 0; i < numRows; ++i)
+    {
+        triangle[i].resize(i + 1);
+        triangle[i][0] = triangle[i][i] = 1;
+
+        for (int j = 1; j <= i; ++j)
+        {
+            triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+        }
+    }
+
+    
+    for (int i = 0; i < numRows; ++i)
+    {
+        for (int j = 0; j <= i; ++j)
+        {
+            triangle[i][j] = 0;
+        }
+    }
+
+    return triangle;
+}
+
+
+void printReversedPascalsTriangle(const vector<vector<int>> &triangle)
+{
+    for (int i = triangle.size() - 1; i >= 0; --i)
+    {
+        for (int j = 0; j < triangle[i].size(); ++j)
+        {
+            cout << triangle[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main()
+{
+    int numRows;
+    cout << "Enter the number of rows for Pascal's triangle: ";
+    cin >> numRows;
+
+    vector<vector<int>> triangle = generatePascalsTriangle(numRows);
+    printReversedPascalsTriangle(triangle);
+
+    return 0;
+}
+12.//Wap in c++ to implement tower of hanoi
+
+#include <iostream>
+using namespace std;
+
+class TowerOfHanoi
+{
+public:
+    void solve(int n, char from, char to, char aux)
+    {
+        if (n == 0)
+            return;
+        solve(n - 1, from, aux, to);
+        cout << "Move disk " << n << " from " << from << " to " << to << endl;
+        solve(n - 1, aux, to, from);
+    }
+};
+
+int main()
+{
+    int n;
+    cout << "Enter the number of disks: ";
+    cin >> n;
+    TowerOfHanoi hanoi;
+    hanoi.solve(n, 'A', 'C', 'B');
+}
+13.//Wap in c++ which will calculate the avg of 10 students , 5 will be taken from 2 diff section by doing friend function
+
+#include <iostream>
+using namespace std;
+
+class SectionA; 
+
+class SectionB
+{
+    int marks[5];
+
+public:
+    void inputMarks()
+    {
+        cout << "Enter marks for 5 students in Section B:\n";
+        for (int i = 0; i < 5; ++i)
+        {
+            cout << "Student " << i + 1 << ": ";
+            cin >> marks[i];
+        }
+    }
+
+    friend float calculateAverage(SectionA, SectionB); 
+};
+
+class SectionA
+{
+    int marks[5];
+
+public:
+    void inputMarks()
+    {
+        cout << "Enter marks for 5 students in Section A:\n";
+        for (int i = 0; i < 5; ++i)
+        {
+            cout << "Student " << i + 1 << ": ";
+            cin >> marks[i];
+        }
+    }
+
+    friend float calculateAverage(SectionA, SectionB); 
+};
+
+float calculateAverage(SectionA a, SectionB b)
+{
+    int total = 0;
+    for (int i = 0; i < 5; ++i)
+    {
+        total += a.marks[i];
+        total += b.marks[i];
+    }
+    return total / 10.0; 
+}
+
+int main()
+{
+    SectionA sectionA;
+    SectionB sectionB;
+
+    sectionA.inputMarks();
+    sectionB.inputMarks();
+
+    float avg = calculateAverage(sectionA, sectionB);
+    cout << "The average marks of 10 students (from both sections) is: " << avg << endl;
+
+    return 0;
+}
+14.//Wap in C++ , that will count no. of employee in the department and show their details
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Employee
+{
+    string name;
+    int id;
+
+public:
+    void inputDetails()
+    {
+        cout << "Enter employee name: ";
+        cin.ignore(); // To ignore any leftover newline character in the input buffer
+        getline(cin, name);
+        cout << "Enter employee ID: ";
+        cin >> id;
+    }
+
+    void displayDetails() const
+    {
+        cout << "Name: " << name << ", ID: " << id << endl;
+    }
+};
+
+class Department
+{
+    vector<Employee> employees;
+
+public:
+    void addEmployee()
+    {
+        Employee emp;
+        emp.inputDetails();
+        employees.push_back(emp);
+    }
+
+    void displayAllEmployees() const
+    {
+        cout << "Employee details:\n";
+        for (const auto &emp : employees)
+        {
+            emp.displayDetails();
+        }
+        cout << "Total number of employees: " << employees.size() << endl;
+    }
+};
+
+int main()
+{
+    Department dept;
+    int num;
+
+    cout << "Enter the number of employees: ";
+    cin >> num;
+
+    for (int i = 0; i < num; ++i)
+    {
+        cout << "Entering details for employee " << i + 1 << ":\n";
+        dept.addEmployee();
+    }
+
+    dept.displayAllEmployees();
+
+    return 0;
+}
+15.//Write a C++ program that will calculate the simple interest where the rate of interest has a default value of 15%
+
+#include <iostream>
+using namespace std;
+
+float calculateSimpleInterest(float principal, float time, float rate = 15.0)
+{
+    return (principal * time * rate) / 100;
+}
+
+float calculateSimpleInterestDefault(float principal, float time)
+{
+    return calculateSimpleInterest(principal, time);
+}
+
+int main()
+{
+    float principal, time, rate;
+    char choice;
+
+    cout << "Enter the amount: ";
+    cin >> principal;
+    cout << "Amount entered: " << principal << " Rupees" << endl;
+
+    cout << "Enter the time in years: ";
+    cin >> time;
+
+    cout << "Do you want to enter a custom rate of interest? (y/n): ";
+    cin >> choice;
+
+    if (choice == 'y' || choice == 'Y')
+    {
+        cout << "Enter the rate of interest: ";
+        cin >> rate;
+        cout << "The simple interest is: " << calculateSimpleInterest(principal, time, rate) << endl;
+    }
+    else
+    {
+        cout << "The simple interest is: " << calculateSimpleInterestDefault(principal, time) << endl;
+    }
+
+    return 0;
+} .
